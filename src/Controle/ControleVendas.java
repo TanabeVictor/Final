@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controle;
 
-/**
- *
- * @author vitau
- */
+import Entidades.Venda;
+import java.util.*;
+
 public class ControleVendas {
+    
+    private Vector listaVenda = new Vector();
+    
+    //Inserção da venda
+    public void setVenda(String nomeComprador, String dataVenda, double valorReal, double valorAnunciado, int nroCreci, int codImovel) {
+        Venda objVenda = new Venda(nomeComprador, dataVenda, valorReal, valorAnunciado, nroCreci, codImovel);
+        listaVenda.add(objVenda);
+    }
     
 }
