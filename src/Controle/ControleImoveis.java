@@ -15,7 +15,7 @@ public class ControleImoveis {
     public void setImovel(int codigo, String tipo, String descricao, String nomeVendedor, String data, double preco) throws Exception {
         Imovel objImovel = new Imovel(codigo, tipo, descricao, nomeVendedor, data, preco);
         listaImovel.add(objImovel);
-    }
+        gravaImovel();}
 
     //Remoção do imóvel; limite passa o código como parâmetro após a venda para que ele seja removido da lista
     public void removeImovel(int codigo) {
