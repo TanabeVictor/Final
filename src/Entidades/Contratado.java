@@ -12,4 +12,19 @@ package Entidades;
 public class Contratado extends Corretor{
      private double salario;
      private String data;
+     
+    public Contratado(){
+    }
+    
+    public void setSalario(double salario){
+    this.salario = salario;}
+    
+    public void setData(String data){
+    this.data = data;}
+    
+    public double getSalario(){
+    return this.salario;}
+    
+    public String getData(){
+    return this.data;}
 }

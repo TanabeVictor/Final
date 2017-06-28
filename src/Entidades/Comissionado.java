@@ -11,4 +11,11 @@ package Entidades;
  */
 public class Comissionado extends Corretor{
     private double percentual;
+    
+    public void setPercentual(double percentual){
+    this.percentual = percentual;}
+    
+    public double getPercentual(){
+    return this.percentual;}
+    
 }

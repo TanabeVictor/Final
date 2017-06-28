@@ -11,11 +11,8 @@ public class Venda {
         setValorReal(valorReal);
         setValorAnunciado(valorAnunciado);
         setNroCreci(nroCreci);
-        setCodImovel(codImovel);
-    }
+        setCodImovel(codImovel);}
     
-    
-
     public String getNomeComprador() {
         return nomeComprador;
     }
