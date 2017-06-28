@@ -5,7 +5,7 @@
  */
 package Limite;
 
-import Controle.ControleImovel;
+import Controle.ControleImoveis;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
  * @author vitau
  */
 public class TelaInicial extends javax.swing.JFrame implements ActionListener{
-    ControleImovel objACtrImovel = new ControleImovel();
+    ControleImoveis objACtrImovel = new ControleImoveis();
     
     public TelaInicial() {
         initComponents();

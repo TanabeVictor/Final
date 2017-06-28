@@ -8,8 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.*;
 
-public class ControleImovel {
-    
+public class ControleImoveis {
     private Vector listaImovel = new Vector();
 
     //Inserção do imóvel
