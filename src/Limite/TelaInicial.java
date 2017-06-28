@@ -5,6 +5,7 @@
  */
 package Limite;
 
+import Controle.ControleImovel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,10 +14,8 @@ import java.awt.event.ActionListener;
  * @author vitau
  */
 public class TelaInicial extends javax.swing.JFrame implements ActionListener{
-
-    /**
-     * Creates new form TelaInicial
-     */
+    ControleImovel objACtrImovel = new ControleImovel();
+    
     public TelaInicial() {
         initComponents();
     }
