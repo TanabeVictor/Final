@@ -11,6 +11,9 @@ package Entidades;
  */
 public class Comissionado extends Corretor{
     private double percentual;
+
+    public Comissionado(String nome, int creci) {
+        super(nome, creci);}
     
     public void setPercentual(double percentual){
     this.percentual = percentual;}

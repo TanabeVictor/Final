@@ -13,9 +13,9 @@ public class Corretor {
     private int creci;
     private String nome;
     
-    public Corretor(){
-    
-    }
+    public Corretor(String nome, int creci){
+    setNome(nome);
+    setCreci(creci);}
     
     public void setCreci(int creci){
     this.creci = creci;}

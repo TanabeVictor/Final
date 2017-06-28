@@ -5,10 +5,13 @@
  */
 package Controle;
 
+import java.util.Vector;
+
 /**
  *
  * @author vitau
  */
 public class ControleComissionado {
+    private Vector listaComissionado = new Vector();
     
 }

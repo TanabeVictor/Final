@@ -12,9 +12,9 @@ package Entidades;
 public class Contratado extends Corretor{
      private double salario;
      private String data;
-     
-    public Contratado(){
-    }
+
+    public Contratado(String nome, int creci) {
+        super(nome, creci); }
     
     public void setSalario(double salario){
     this.salario = salario;}

@@ -5,13 +5,10 @@
  */
 package Controle;
 
-import java.util.Vector;
-
 /**
  *
  * @author vitau
  */
-public class ControleContratado {
-    private Vector listaContratado = new Vector();
+public class ControleRelatorio {
     
 }
