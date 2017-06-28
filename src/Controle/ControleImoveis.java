@@ -1,6 +1,11 @@
 package Controle;
 
 import Entidades.Imovel;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.*;
 
 public class ControleImoveis {
@@ -148,4 +153,20 @@ public class ControleImoveis {
         }
         return informacao;
     }
+    
+    
+    private void gravaImovel() throws Exception {
+        FileOutputStream objFileOS = new FileOutputStream("Imoveis.dat");
+            ObjectOutputStream objOS = new ObjectOutputStream(objFileOS);
+                objOS.writeObject(listaImovel);
+                    objOS.flush();
+        objOS.close();}
+
+    private void recuperImovel() throws Exception {
+        File objFile = new File("Imoveis.dat");
+            if (objFile.exists()) {
+                FileInputStream objFileIS = new FileInputStream("Imoveis.dat");
+                    ObjectInputStream objIS = new ObjectInputStream(objFileIS);
+                        listaImovel = (Vector) objIS.readObject();
+        objIS.close();}}
 }

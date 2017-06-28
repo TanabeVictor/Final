@@ -16,6 +16,5 @@ public class Comissionado extends Corretor {
     public void setPercentual(double percentual) {
         this.percentual = percentual;
     }
-    
-    
+
 }

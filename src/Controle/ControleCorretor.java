@@ -5,10 +5,13 @@
  */
 package Controle;
 
+import java.util.Vector;
+
 /**
  *
  * @author vitau
  */
 public class ControleCorretor {
+    private Vector listaCorretor = new Vector();
     
 }
