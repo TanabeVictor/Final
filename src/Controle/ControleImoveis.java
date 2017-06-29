@@ -34,13 +34,12 @@ public class ControleImoveis {
         for (int intIdx = 0; intIdx < listaImovel.size(); intIdx++) {
             objImovel = (Imovel) listaImovel.elementAt(intIdx);
             
-                informacao += "Código: " + objImovel.getCodigo()
-                        + "\nDescrição: " + objImovel.getDescricao()
-                        + "\nTipo: " + objImovel.getTipo()
-                        + "\nNome do vendedor: " + objImovel.getNomeVendedor()
-                        + "\nData de cadastro: " + objImovel.getData()
-                        + "\nPreço: R$ " + objImovel.getPreco()
-                        + "\n+";}
+                informacao +=objImovel.getCodigo()
+                        + "\n"+ objImovel.getDescricao()
+                        + "\n"+ objImovel.getTipo()
+                        + "\n"+ objImovel.getNomeVendedor()
+                        + "\n"+ objImovel.getData()
+                        + "\n"+ objImovel.getPreco();}
         
         return informacao;
     }

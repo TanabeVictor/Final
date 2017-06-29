@@ -60,6 +60,8 @@ public class TelaInicial extends javax.swing.JFrame{
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         Button_Cad_Corretor = new javax.swing.JButton();
+        ComboBox_Tipo_Corretor = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -71,6 +73,11 @@ public class TelaInicial extends javax.swing.JFrame{
         jLabel20 = new javax.swing.JLabel();
         Field_Data_Vendas = new javax.swing.JTextField();
         Button_Venda = new javax.swing.JButton();
+        Button_Verificar_Cad = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        Field_CodVenda_Vendas = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jTabbedPane8 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -78,6 +85,7 @@ public class TelaInicial extends javax.swing.JFrame{
         ComboBox_Tipo_Ver = new javax.swing.JComboBox<>();
         Button_Remover_Ver = new javax.swing.JButton();
         Button_Editar_Ver = new javax.swing.JButton();
+        Button_Verifica_View = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -318,6 +326,10 @@ public class TelaInicial extends javax.swing.JFrame{
             }
         });
 
+        ComboBox_Tipo_Corretor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Contratado", "Comissionado" }));
+
+        jLabel22.setText("Tipo :");
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -336,9 +348,15 @@ public class TelaInicial extends javax.swing.JFrame{
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Field_Creci_Corretor)
                             .addComponent(Field_Nome_Corretor, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Button_Cad_Corretor)
-                        .addGap(37, 37, 37))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComboBox_Tipo_Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(200, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Button_Cad_Corretor)
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,16 +364,17 @@ public class TelaInicial extends javax.swing.JFrame{
                 .addGap(42, 42, 42)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(Field_Creci_Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Field_Creci_Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboBox_Tipo_Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Field_Nome_Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Button_Cad_Corretor))
+                    .addComponent(Field_Nome_Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Button_Cad_Corretor))
         );
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -368,7 +387,7 @@ public class TelaInicial extends javax.swing.JFrame{
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 47, Short.MAX_VALUE))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
 
         jTabbedPane7.addTab("Cadastro de Corretor", jPanel9);
@@ -403,6 +422,15 @@ public class TelaInicial extends javax.swing.JFrame{
             }
         });
 
+        Button_Verificar_Cad.setText("Verificar");
+        Button_Verificar_Cad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Verificar_CadActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setText("Código do Imóvel: ");
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -411,16 +439,24 @@ public class TelaInicial extends javax.swing.JFrame{
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Field_Comprador_Vendas)
-                    .addComponent(Field_Data_Vendas)
-                    .addComponent(Field_Valor_Vendas)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(Button_Venda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(834, 834, 834))
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Field_Comprador_Vendas)
+                            .addComponent(Field_Data_Vendas)
+                            .addComponent(Field_Valor_Vendas)
+                            .addComponent(Button_Venda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(Button_Verificar_Cad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(834, 834, 834))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(Field_CodVenda_Vendas, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,10 +472,16 @@ public class TelaInicial extends javax.swing.JFrame{
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Field_Data_Vendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Field_CodVenda_Vendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Button_Venda)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Button_Verificar_Cad)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -454,6 +496,32 @@ public class TelaInicial extends javax.swing.JFrame{
         );
 
         jTabbedPane7.addTab("Cadastro de Vendas", jPanel11);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 661, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 395, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane7.addTab("Cadastro de Pagamento", jPanel5);
 
         jTabbedPane6.addTab("Cadastrar", jTabbedPane7);
         jTabbedPane7.getAccessibleContext().setAccessibleName("tab1");
@@ -492,6 +560,13 @@ public class TelaInicial extends javax.swing.JFrame{
             }
         });
 
+        Button_Verifica_View.setText("Verificar");
+        Button_Verifica_View.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Verifica_ViewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -499,16 +574,22 @@ public class TelaInicial extends javax.swing.JFrame{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ComboBox_Tipo_Ver, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Button_Editar_Ver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Button_Remover_Ver, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ComboBox_Tipo_Ver, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Button_Editar_Ver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Button_Remover_Ver, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addContainerGap())))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Button_Verifica_View, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -519,8 +600,10 @@ public class TelaInicial extends javax.swing.JFrame{
                 .addComponent(Button_Editar_Ver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Button_Remover_Ver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Button_Verifica_View)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
         );
 
         jTabbedPane8.addTab("Visualizar Imóveis", jPanel1);
@@ -779,10 +862,6 @@ public class TelaInicial extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_Editar_VerIIActionPerformed
         
-    private void Button_Cad_CorretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Cad_CorretorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Button_Cad_CorretorActionPerformed
-
     private void Button_Cad_ImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Cad_ImovelActionPerformed
         try {
             String cod = Field_Cod_Imovel.getText();
@@ -793,26 +872,26 @@ public class TelaInicial extends javax.swing.JFrame{
             String data = Field_Data_Imovel.getText();
             String prec = Field_Preco_Imovel.getText();
             double preco = Double.parseDouble(prec);
-            objACtrImovel.setImovel(codigo, tipo, descricao, nomeVend, data, preco);} 
+            objACtrImovel.setImovel(codigo, tipo, descricao, nomeVend, data, preco);
+            JOptionPane.showMessageDialog(null, "Imóvel Cadastrado!");}
         catch (Exception ex) {
             JOptionPane.showMessageDialog(null,"Erro na Inserção Imóvel");}
     }//GEN-LAST:event_Button_Cad_ImovelActionPerformed
 
     private void Button_VendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_VendaActionPerformed
-        String info = objACtrImovel.getImovel();
-        String[] split = info.split("\n");
-        for(int iDx = 0; iDx < split.length; iDx++){
-        objeto.add(split[iDx]);}
-    
-    String[] nomesColunas = {"", "endereco", "telefone"};
-    //essa lista terá as linhas da sua JTable, preenchi abaixo apenas como exemplo
-    ArrayList<String[]> lista = new ArrayList<>();
-    lista.add(new String[]{"Joao", "rua um", "1234-5678"});
-    lista.add(new String[]{"Henrique", "rua 42", "1122-3344"});
-    lista.add(new String[]{"Manuel", "av 7 de setembro", "8765-4321"});
-    DefaultTableModel model = new DefaultTableModel(
-        lista.toArray(new String[lista.size()][]), nomesColunas);
-    Table_Vendas.setModel(model);
+            String[] nomesColunas = {"Codigo", "Descrição", "Tipo", "Vendedor", "Preço"};
+            String nome = Field_Comprador_Vendas.getText();
+            String valor = Field_Valor_Vendas.getText();
+            String data = Field_Data_Vendas.getText();
+            String cod = Field_CodVenda_Vendas.getText();
+            int codigo = Integer.parseInt(cod);
+            objACtrImovel.removeImovel(codigo);
+            JOptionPane.showMessageDialog(null,"Imóvel Vendido!");
+            ArrayList<String[]> lista = new ArrayList<>();
+            lista.add(new String[]{"", "", "", "", ""});
+            DefaultTableModel model = new DefaultTableModel(
+            lista.toArray(new String[lista.size()][]), nomesColunas);
+            Table_Vendas.setModel(model);
     }//GEN-LAST:event_Button_VendaActionPerformed
 
     private void Button_Editar_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Editar_VerActionPerformed
@@ -820,7 +899,13 @@ public class TelaInicial extends javax.swing.JFrame{
     }//GEN-LAST:event_Button_Editar_VerActionPerformed
 
     private void Button_Remover_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Remover_VerActionPerformed
-        // TODO add your handling code here:
+            String nome = Field_Comprador_Vendas.getText();
+            String valor = Field_Valor_Vendas.getText();
+            String data = Field_Data_Vendas.getText();
+            String cod = Field_CodVenda_Vendas.getText();
+            int codigo = Integer.parseInt(cod);
+            objACtrImovel.removeImovel(codigo);
+            JOptionPane.showMessageDialog(null,"Imóvel Vendido!");
     }//GEN-LAST:event_Button_Remover_VerActionPerformed
 
     private void Button_Remover_VerIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Remover_VerIIActionPerformed
@@ -839,9 +924,40 @@ public class TelaInicial extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_Gerar_VerIVActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void Button_Verifica_ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Verifica_ViewActionPerformed
+        String[] nomesColunas = {"Codigo", "Descrição", "Tipo", "Vendedor", "Preço"};
+        ArrayList<String[]> lista = new ArrayList<>();
+        String info = objACtrImovel.getImovel();
+        String[] split = info.split("\n");
+        lista.add(new String[]{split[0], split[1], split[2], split[3], split[6]});
+
+        DefaultTableModel model = new DefaultTableModel(
+        lista.toArray(new String[lista.size()][]), nomesColunas);
+        Table_Vendas.setModel(model);
+    }//GEN-LAST:event_Button_Verifica_ViewActionPerformed
+
+    private void Button_Verificar_CadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Verificar_CadActionPerformed
+        String[] nomesColunas = {"Codigo", "Descrição", "Tipo", "Vendedor", "Preço"};
+        ArrayList<String[]> lista = new ArrayList<>();
+        String info = objACtrImovel.getImovel();
+        String[] split = info.split("\n");
+        lista.add(new String[]{split[0], split[1], split[2], split[3], split[6]});
+
+        DefaultTableModel model = new DefaultTableModel(
+        lista.toArray(new String[lista.size()][]), nomesColunas);
+        Table_Vendas.setModel(model);
+    }//GEN-LAST:event_Button_Verificar_CadActionPerformed
+
+    private void Button_Cad_CorretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Cad_CorretorActionPerformed
+        String creci = Field_Creci_Corretor.getText();
+        String nome = Field_Nome_Corretor.getText();
+        String data = Field_Data_Corretor.getText();
+        String salario = Field_Salario_Corretor.getText();
+        int percentual = Slider_Percentual_Corretor.getValue();
+        String tipo = (String) ComboBox_Tipo_Corretor.getSelectedItem();
+            
+    }//GEN-LAST:event_Button_Cad_CorretorActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -885,10 +1001,14 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JButton Button_Remover_VerII;
     private javax.swing.JButton Button_Remover_VerIII;
     private javax.swing.JButton Button_Venda;
+    private javax.swing.JButton Button_Verifica_View;
+    private javax.swing.JButton Button_Verificar_Cad;
     private javax.swing.JComboBox<String> ComboBox_Mes_ViewIV;
+    private javax.swing.JComboBox<String> ComboBox_Tipo_Corretor;
     private javax.swing.JComboBox<String> ComboBox_Tipo_Imovel;
     private javax.swing.JComboBox<String> ComboBox_Tipo_Ver;
     private javax.swing.JTextField Field_Ano_ViewIV;
+    private javax.swing.JTextField Field_CodVenda_Vendas;
     private javax.swing.JTextField Field_Cod_Imovel;
     private javax.swing.JTextField Field_Comprador_Vendas;
     private javax.swing.JTextField Field_Creci_Corretor;
@@ -918,6 +1038,8 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -938,6 +1060,8 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
