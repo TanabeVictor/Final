@@ -14,8 +14,8 @@ public class ControleImoveis {
     //Inserção do imóvel
     public void setImovel(int codigo, String tipo, String descricao, String nomeVendedor, String data, double preco) throws Exception {
         Imovel objImovel = new Imovel(codigo, tipo, descricao, nomeVendedor, data, preco);
-        listaImovel.add(objImovel);
-        gravaImovel();}
+        System.out.println("Pressionado");
+        listaImovel.add(objImovel);}
 
     //Remoção do imóvel; limite passa o código como parâmetro após a venda para que ele seja removido da lista
     public void removeImovel(int codigo) {
@@ -27,7 +27,24 @@ public class ControleImoveis {
             }
         }
     }
-
+    
+    public String getImovel() {
+     String informacao = "";
+        Imovel objImovel = null;
+        for (int intIdx = 0; intIdx < listaImovel.size(); intIdx++) {
+            objImovel = (Imovel) listaImovel.elementAt(intIdx);
+            
+                informacao += "Código: " + objImovel.getCodigo()
+                        + "\nDescrição: " + objImovel.getDescricao()
+                        + "\nTipo: " + objImovel.getTipo()
+                        + "\nNome do vendedor: " + objImovel.getNomeVendedor()
+                        + "\nData de cadastro: " + objImovel.getData()
+                        + "\nPreço: R$ " + objImovel.getPreco()
+                        + "\n+";}
+        
+        return informacao;
+    }
+    
     //Lista imóveis do tipo casa
     public String getImoveisCasa() {
         String informacao = "";
