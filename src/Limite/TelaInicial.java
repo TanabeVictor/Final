@@ -1,7 +1,7 @@
 package Limite;
 
-import Controle.ControleImoveis;
-import Entidades.Imovel;
+import Controle.*;
+import Entidades.*;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaInicial extends javax.swing.JFrame{
     private ControleImoveis objACtrImovel = new ControleImoveis();
+    private ControleCorretor objACtrCorretor = new ControleCorretor();
     private Imovel objAEntImovel;
     private Vector objeto = new Vector();
     private DefaultTableModel model_vendas =  new DefaultTableModel(); 
@@ -949,13 +950,21 @@ public class TelaInicial extends javax.swing.JFrame{
     }//GEN-LAST:event_Button_Verificar_CadActionPerformed
 
     private void Button_Cad_CorretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Cad_CorretorActionPerformed
-        String creci = Field_Creci_Corretor.getText();
+        String crec = Field_Creci_Corretor.getText();
+        int creci = Integer.parseInt(crec);
         String nome = Field_Nome_Corretor.getText();
         String data = Field_Data_Corretor.getText();
-        String salario = Field_Salario_Corretor.getText();
+        String sal = Field_Salario_Corretor.getText();
+        double salario = Double.parseDouble(sal);
         int percentual = Slider_Percentual_Corretor.getValue();
         String tipo = (String) ComboBox_Tipo_Corretor.getSelectedItem();
-            
+        
+        if(tipo.equals("Contratado")){
+        objACtrCorretor.setCorretorContratado(salario, data, creci, nome);}
+        
+        else if (tipo.equals("Comissionado")){
+        objACtrCorretor.setCorretorComissionado(percentual, creci, nome);}
+      
     }//GEN-LAST:event_Button_Cad_CorretorActionPerformed
 
     public static void main(String args[]) {
