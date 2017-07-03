@@ -5,6 +5,7 @@ import Entidades.Corretor;
 import Entidades.Pagamento;
 import Entidades.Venda;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 
 public class ControlePagamento {
 
@@ -14,11 +15,19 @@ public class ControlePagamento {
     private Pagamento p;
     private double total;
 
-    public int procuraComissao(int creci) {
+    public double procuraComissao(int creci) {
         int c = 0;
-        for (int i = 0; i < ctrComissionado.getVectorComissionado().size(); i++) {
+        try {
+            for (int i = 0; i < ctrComissionado.getVectorComissionado().size(); i++) {
+                Comissionado comis = (Comissionado) ctrComissionado.getVectorComissionado().elementAt(i);
+                if (comis.getCreci() == creci) {
+                    return comis.getPercentual();
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        return c;
+        return 0;
     }
 
     public void procuraVenda(Corretor c, int mes) {
@@ -27,7 +36,7 @@ public class ControlePagamento {
             Venda venda = (Venda) ctrVendas.getVector().elementAt(i);
             if (Integer.parseInt(venda.getDataVenda().substring(3, 5)) == mes && venda.getNroCreci() == c.getCreci()) {
                 if (c.getClass().getName() == "Comissionado") {
-                    total += venda.getValorReal() * procuraComissao(c.getCreci()) * (0.01);
+                    total += venda.getValorReal() * procuraComissao(c.getCreci());
                 } else if (c.getClass().getName() == "Contratado") {
                     total += venda.getValorReal() * (0.01);
                 }
