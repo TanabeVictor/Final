@@ -1,9 +1,6 @@
 package Controle;
 
-import Entidades.Comissionado;
-import Entidades.Corretor;
-import Entidades.Pagamento;
-import Entidades.Venda;
+import Entidades.*;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 

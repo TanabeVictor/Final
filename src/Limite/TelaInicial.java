@@ -8,6 +8,8 @@ import javax.swing.table.DefaultTableModel;
 public class TelaInicial extends javax.swing.JFrame{
     private ControleImoveis objACtrImovel = new ControleImoveis();
     private ControleCorretor objACtrCorretor = new ControleCorretor();
+    private ControleVendas objACtrVendas = new ControleVendas();
+    private ControlePagamento objACtrPagamento = new ControlePagamento();
     private DefaultTableModel model = new DefaultTableModel();
     private DefaultTableModel model2 = new DefaultTableModel();
     String[] nomesColunas = {"Codigo", "Descrição", "Tipo", "Vendedor", "Data", "Preço"};
@@ -19,8 +21,7 @@ public class TelaInicial extends javax.swing.JFrame{
         Table_Vendas.setModel(model);
         Table_Imovel_Ver.setModel(model);
         model2.setColumnIdentifiers(nomesColunas2);
-        Table_Corretor_Ver.setModel(model2);
-    }
+        Table_Corretor_Ver.setModel(model2);}
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -98,7 +99,7 @@ public class TelaInicial extends javax.swing.JFrame{
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Table_Vendas_Ver = new javax.swing.JTable();
         Button_Editar_VerIII = new javax.swing.JButton();
         Button_Remover_VerIII = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
@@ -110,6 +111,13 @@ public class TelaInicial extends javax.swing.JFrame{
         jLabel2 = new javax.swing.JLabel();
         Field_Ano_ViewIV = new javax.swing.JTextField();
         Button_Gerar_VerIV = new javax.swing.JButton();
+        jPanel19 = new javax.swing.JPanel();
+        Panel_Relatorios = new javax.swing.JPanel();
+        ComboBox_Relatorios = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        Button_Enviar_Relatorios = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        Relatorio_Area = new javax.swing.JTextArea();
 
         jLabel17.setText("jLabel17");
 
@@ -661,7 +669,7 @@ public class TelaInicial extends javax.swing.JFrame{
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Visualizar Vendas"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table_Vendas_Ver.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -672,7 +680,7 @@ public class TelaInicial extends javax.swing.JFrame{
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable1);
+        jScrollPane4.setViewportView(Table_Vendas_Ver);
 
         Button_Editar_VerIII.setText("Editar");
         Button_Editar_VerIII.addActionListener(new java.awt.event.ActionListener() {
@@ -804,6 +812,66 @@ public class TelaInicial extends javax.swing.JFrame{
         jTabbedPane6.addTab("Visualizar", jTabbedPane8);
         jTabbedPane8.getAccessibleContext().setAccessibleName("Visualizar");
 
+        Panel_Relatorios.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleção de Relatórios"));
+
+        ComboBox_Relatorios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Faturamento Total", "Lucro da Imobiliária", "Relação Vendidos", "Relação Encalhados", "Faturamento Corretor", "Valor Pago", "Corretor do Mês" }));
+
+        jLabel23.setText("Selecione o Relatório Desejado:");
+
+        Button_Enviar_Relatorios.setText("Enviar");
+        Button_Enviar_Relatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_Enviar_RelatoriosActionPerformed(evt);
+            }
+        });
+
+        Relatorio_Area.setColumns(20);
+        Relatorio_Area.setRows(5);
+        jScrollPane6.setViewportView(Relatorio_Area);
+
+        javax.swing.GroupLayout Panel_RelatoriosLayout = new javax.swing.GroupLayout(Panel_Relatorios);
+        Panel_Relatorios.setLayout(Panel_RelatoriosLayout);
+        Panel_RelatoriosLayout.setHorizontalGroup(
+            Panel_RelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_RelatoriosLayout.createSequentialGroup()
+                .addGroup(Panel_RelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Panel_RelatoriosLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComboBox_Relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Button_Enviar_Relatorios))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(215, Short.MAX_VALUE))
+        );
+        Panel_RelatoriosLayout.setVerticalGroup(
+            Panel_RelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_RelatoriosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Panel_RelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(ComboBox_Relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_Enviar_Relatorios))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addComponent(Panel_Relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel_Relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane6.addTab("Relatórios", jPanel19);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -838,7 +906,7 @@ public class TelaInicial extends javax.swing.JFrame{
       
     
     private void Button_Editar_VerIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Editar_VerIIActionPerformed
-        // TODO add your handling code here:
+        Table_Corretor_Ver.getEditingRow();
     }//GEN-LAST:event_Button_Editar_VerIIActionPerformed
         
     private void Button_Cad_ImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Cad_ImovelActionPerformed
@@ -880,7 +948,7 @@ public class TelaInicial extends javax.swing.JFrame{
     }//GEN-LAST:event_Button_VendaActionPerformed
 
     private void Button_Editar_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Editar_VerActionPerformed
-        // TODO add your handling code here:
+            Table_Imovel_Ver.getEditingRow();
     }//GEN-LAST:event_Button_Editar_VerActionPerformed
 
     private void Button_Remover_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Remover_VerActionPerformed
@@ -898,7 +966,7 @@ public class TelaInicial extends javax.swing.JFrame{
     }//GEN-LAST:event_Button_Remover_VerIIActionPerformed
 
     private void Button_Editar_VerIIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Editar_VerIIIActionPerformed
-        // TODO add your handling code here:
+            Table_Vendas_Ver.getEditingRow();
     }//GEN-LAST:event_Button_Editar_VerIIIActionPerformed
 
     private void Button_Remover_VerIIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Remover_VerIIIActionPerformed
@@ -933,6 +1001,16 @@ public class TelaInicial extends javax.swing.JFrame{
         
         JOptionPane.showMessageDialog(null, "Corretor Cadastrado!");
     }//GEN-LAST:event_Button_Cad_CorretorActionPerformed
+
+    private void Button_Enviar_RelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Enviar_RelatoriosActionPerformed
+        String opcao = (String) ComboBox_Relatorios.getSelectedItem();
+        
+        if(opcao.equals("Faturamento Total")){objACtrVendas.getFaturamentoImobiliaria(WIDTH, ABORT);}
+        //else if(opcao.equals("Lucro da Imobiliária")){objACtrVendas.getLucroImobiliaria(listaCorretorComissionado, listaCorretorContratado, WIDTH, ABORT);}
+        //else if(opcao.equals("Relação Vendidos")){}
+        //else if(opcao.equals("Relação Encalhados")){objACtrImovel.getImoveisEncalhados(WIDTH, ABORT);}
+        //else if(opcao.equals("Corretor do Mês")){objACtrCorretor.getMelhorCorretor(listaVenda, 01, 2010);}
+    }//GEN-LAST:event_Button_Enviar_RelatoriosActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -972,12 +1050,14 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JButton Button_Editar_Ver;
     private javax.swing.JButton Button_Editar_VerII;
     private javax.swing.JButton Button_Editar_VerIII;
+    private javax.swing.JButton Button_Enviar_Relatorios;
     private javax.swing.JButton Button_Gerar_VerIV;
     private javax.swing.JButton Button_Remover_Ver;
     private javax.swing.JButton Button_Remover_VerII;
     private javax.swing.JButton Button_Remover_VerIII;
     private javax.swing.JButton Button_Venda;
     private javax.swing.JComboBox<String> ComboBox_Mes_ViewIV;
+    private javax.swing.JComboBox<String> ComboBox_Relatorios;
     private javax.swing.JComboBox<String> ComboBox_Tipo_Corretor;
     private javax.swing.JComboBox<String> ComboBox_Tipo_Imovel;
     private javax.swing.JComboBox<String> ComboBox_Tipo_Ver;
@@ -995,10 +1075,13 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JTextField Field_Prop_Imovel;
     private javax.swing.JTextField Field_Salario_Corretor;
     private javax.swing.JTextField Field_Valor_Vendas;
+    private javax.swing.JPanel Panel_Relatorios;
+    private javax.swing.JTextArea Relatorio_Area;
     private javax.swing.JSlider Slider_Percentual_Corretor;
     private javax.swing.JTable Table_Corretor_Ver;
     private javax.swing.JTable Table_Imovel_Ver;
     private javax.swing.JTable Table_Vendas;
+    private javax.swing.JTable Table_Vendas_Ver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1014,6 +1097,7 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1031,6 +1115,7 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1044,12 +1129,12 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTabbedPane jTabbedPane8;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
     

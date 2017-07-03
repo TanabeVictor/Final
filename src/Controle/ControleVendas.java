@@ -1,8 +1,6 @@
 package Controle;
 
-import Entidades.Venda;
-import Entidades.Comissionado;
-import Entidades.Contratado;
+import Entidades.*;
 import java.util.*;
 
 public class ControleVendas {

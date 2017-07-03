@@ -1,11 +1,7 @@
 package Controle;
 
-import Entidades.Imovel;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import Entidades.*;
+import java.io.*;
 import java.util.*;
 
 public class ControleImoveis {
