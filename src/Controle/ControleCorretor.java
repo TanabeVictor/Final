@@ -13,6 +13,10 @@ public class ControleCorretor {
     private Vector listaCorretorComissionado = new Vector();
     private Vector listaCorretorContratado = new Vector();
     
+    
+    public Vector getVectorComissionado(){
+        return listaCorretorComissionado;
+    }
     //Cadastro de um corretor contratado
     public void setCorretorContratado(double salario, String dataAdmissao, int creci, String nome) {
         Contratado objCorretor = new Contratado(salario, dataAdmissao, creci, nome);

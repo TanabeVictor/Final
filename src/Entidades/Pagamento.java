@@ -5,6 +5,11 @@ public class Pagamento {
     private int nroVendas;
     private int nroCreci;
 
+    public Pagamento(int nroVendas, int nroCreci) {
+        this.nroVendas = nroVendas;
+        this.nroCreci = nroCreci;
+    }
+
     public void setNroCreci(int nroCreci) {
         this.nroCreci = nroCreci;
     }
