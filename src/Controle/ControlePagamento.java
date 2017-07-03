@@ -16,7 +16,6 @@ public class ControlePagamento {
     private double total;
 
     public double procuraComissao(int creci) {
-        int c = 0;
         try {
             for (int i = 0; i < ctrComissionado.getVectorComissionado().size(); i++) {
                 Comissionado comis = (Comissionado) ctrComissionado.getVectorComissionado().elementAt(i);
@@ -34,19 +33,23 @@ public class ControlePagamento {
         total = 0;
         for (int i = 0; i < ctrVendas.getVector().size(); i++) {
             Venda venda = (Venda) ctrVendas.getVector().elementAt(i);
-            if (Integer.parseInt(venda.getDataVenda().substring(3, 5)) == mes && venda.getNroCreci() == c.getCreci()) {
-                if (c.getClass().getName() == "Comissionado") {
-                    total += venda.getValorReal() * procuraComissao(c.getCreci());
-                } else if (c.getClass().getName() == "Contratado") {
-                    total += venda.getValorReal() * (0.01);
+            try {
+                if (Integer.parseInt(venda.getDataVenda().substring(3, 5)) == mes && venda.getNroCreci() == c.getCreci()) {
+                    if (c.getClass().getName() == "Comissionado") {
+                        total += venda.getValorReal() * procuraComissao(c.getCreci());
+                    } else if (c.getClass().getName() == "Contratado") {
+                        total += venda.getValorReal() * (0.01);
+                    }
                 }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
             }
         }
         //adicionaPagamento();
 
     }
 
-    public void adicionaPagamento(int creci) {
-        listaPagamento.add(new Pagamento(creci, creci));
+    public void adicionaPagamento(int creci, double valor) {
+        listaPagamento.add(new Pagamento(creci, valor));
     }
 }
