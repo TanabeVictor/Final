@@ -34,7 +34,7 @@ public class ControleCorretor {
         listaCorretorComissionado.add(objCorretor);}
     
     //Relatório de lucro dos vendedores
-    public String getLucroVendedores(Vector listaVenda) {
+    public String getLucroVendedores(Vector listaVenda, int mes, int ano) {
         double lucro;
         String resultado = "";
         Venda objVenda = null;
@@ -45,7 +45,9 @@ public class ControleCorretor {
             objComissionado = (Comissionado) this.getVectorComissionado().elementAt(intIdx);
             for (int intIdx2 = 0; intIdx < listaVenda.size(); intIdx2++) {
                 objVenda = (Venda) listaVenda.elementAt(intIdx2);
-                if (objVenda.getNroCreci() == objComissionado.getCreci())
+                if (objVenda.getNroCreci() == objComissionado.getCreci()
+                        && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro += objVenda.getValorReal() * objComissionado.getPercentual();
             }
             resultado += objComissionado.getNome() + " (" + objComissionado.getCreci() + ") - R$ " + lucro + "\n";
@@ -55,7 +57,9 @@ public class ControleCorretor {
             objContratado = (Contratado) this.getListaCorretorContratado().elementAt(intIdx);
             for (int intIdx3 = 0; intIdx < listaVenda.size(); intIdx3++) {
                 objVenda = (Venda) listaVenda.elementAt(intIdx3);
-                if (objVenda.getNroCreci() == objContratado.getCreci())
+                if (objVenda.getNroCreci() == objContratado.getCreci()
+                        && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro += objVenda.getValorReal() * 0.01;
             }
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
@@ -63,8 +67,54 @@ public class ControleCorretor {
         
         return resultado;}
     
+    //Relatório do melhor corretor do mês
+    public String getMelhorCorretor(Vector listaVenda, int mes, int ano) {
+        double maiorContratado = 0, maiorComissionado = 0, atualContratado = 0, atualComissionado = 0;
+        String resultado = "";
+        Venda objVenda = null;
+        Contratado objContratado = null, objMelhorContratado = null;
+        Comissionado objComissionado = null, objMelhorComissionado = null;
+        for (int intIdx = 0; intIdx < this.getVectorComissionado().size(); intIdx++) {
+            atualComissionado = 0;
+            objComissionado = (Comissionado) this.getVectorComissionado().elementAt(intIdx);
+            for (int intIdx2 = 0; intIdx < listaVenda.size(); intIdx2++) {
+                objVenda = (Venda) listaVenda.elementAt(intIdx2);
+                if (objVenda.getNroCreci() == objComissionado.getCreci()
+                        && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
+                    atualComissionado += objVenda.getValorReal() * objComissionado.getPercentual();
+            }
+            if (atualComissionado > maiorComissionado) {
+                objMelhorComissionado = objComissionado;
+                maiorComissionado = atualComissionado;
+            }
+        }
+        for (int intIdx = 0; intIdx < this.getListaCorretorContratado().size(); intIdx++) {
+            atualContratado = 0;
+            objContratado = (Contratado) this.getListaCorretorContratado().elementAt(intIdx);
+            for (int intIdx3 = 0; intIdx < listaVenda.size(); intIdx3++) {
+                objVenda = (Venda) listaVenda.elementAt(intIdx3);
+                if (objVenda.getNroCreci() == objContratado.getCreci()
+                        && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
+                    atualContratado += objVenda.getValorReal() * 0.01;
+            }
+            if (atualContratado > maiorContratado) {
+                objMelhorContratado = objContratado;
+                maiorContratado = atualContratado;
+            }
+        }
+        if (maiorContratado > maiorComissionado) {
+            resultado += objMelhorContratado.getNome() + " (" + objMelhorContratado.getCreci() + ") - R$ " + maiorContratado + "\n";
+        } else {
+            resultado += objMelhorComissionado.getNome() + " (" + objMelhorComissionado.getCreci() + ") - R$ " + maiorComissionado + "\n";
+        }
+        
+        return resultado;
+    }
+    
     //Relatório de faturamento dos corretores (quanto cada um trouxe)
-    public String getFaturamentoVendedores(Vector listaVenda) {
+    public String getFaturamentoVendedores(Vector listaVenda, int mes, int ano) {
         double lucro;
         String resultado = "";
         Venda objVenda = null;
@@ -75,7 +125,9 @@ public class ControleCorretor {
             objComissionado = (Comissionado) this.getVectorComissionado().elementAt(intIdx);
             for (int intIdx2 = 0; intIdx < listaVenda.size(); intIdx2++) {
                 objVenda = (Venda) listaVenda.elementAt(intIdx2);
-                if (objVenda.getNroCreci() == objComissionado.getCreci())
+                if (objVenda.getNroCreci() == objComissionado.getCreci()
+                        && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro += objVenda.getValorReal();
             }
             resultado += objComissionado.getNome() + " (" + objComissionado.getCreci() + ") - R$ " + lucro + "\n";
@@ -85,7 +137,9 @@ public class ControleCorretor {
             objContratado = (Contratado) this.getListaCorretorContratado().elementAt(intIdx);
             for (int intIdx3 = 0; intIdx < listaVenda.size(); intIdx3++) {
                 objVenda = (Venda) listaVenda.elementAt(intIdx3);
-                if (objVenda.getNroCreci() == objContratado.getCreci())
+                if (objVenda.getNroCreci() == objContratado.getCreci()
+                        && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro += objVenda.getValorReal();
             }
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";

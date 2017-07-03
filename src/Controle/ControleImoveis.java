@@ -28,6 +28,27 @@ public class ControleImoveis {
         }
     }
     
+    //Relatório de imóveis encalhados
+    public String getImoveisEncalhados(int mes, int ano) {
+        String informacao = "";
+        Imovel objImovel = null;
+        int idadePassada = (ano * 12) + mes;
+        int idadeImovel;
+        for (int intIdx = 0; intIdx < listaImovel.size(); intIdx++) {
+            objImovel = (Imovel) listaImovel.elementAt(intIdx);
+            idadeImovel = Integer.parseInt(objImovel.getData().substring(3, 5)) + (Integer.parseInt(objImovel.getData().substring(7, 10)) * 12);
+            if (idadePassada - idadeImovel > 6) {
+                informacao += "Código: " + objImovel.getCodigo()
+                        + "\nDescrição: " + objImovel.getDescricao()
+                        + "\nNome do vendedor: " + objImovel.getNomeVendedor()
+                        + "\nData de cadastro: " + objImovel.getData()
+                        + "\nPreço: R$ " + objImovel.getPreco()
+                        + "\n\n";
+            }
+        }
+        return informacao;
+    }
+    
     public String getImovel(int codigo) {
      String informacao = "";
         Imovel objImovel = null;

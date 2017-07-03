@@ -2,27 +2,30 @@ package Entidades;
 
 public class Pagamento {
 
-    private int nroVendas;
     private int nroCreci;
+    private double valor;
 
-    public Pagamento(int nroVendas, int nroCreci) {
-        this.nroVendas = nroVendas;
+    public Pagamento(int nroCreci, double valor) {
         this.nroCreci = nroCreci;
-    }
-
-    public void setNroCreci(int nroCreci) {
-        this.nroCreci = nroCreci;
+        this.valor = valor;
     }
 
     public int getNroCreci() {
         return this.nroCreci;
     }
 
-    public void setNroVendas(int nroVendas) {
-        this.nroVendas = nroVendas;
+    public void setNroCreci(int nroCreci) {
+        this.nroCreci = nroCreci;
     }
 
-    public int getNroVendas() {
-        return this.nroVendas;
+    public double getValor() {
+        return this.valor;
     }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+    
+
+    
 }
