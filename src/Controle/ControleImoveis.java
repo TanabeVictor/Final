@@ -22,7 +22,7 @@ public class ControleImoveis {
         Imovel objImovel = null;
         for (int intIdx = 0; intIdx < listaImovel.size(); intIdx++) {
             objImovel = (Imovel) listaImovel.elementAt(intIdx);
-            if (objImovel.getCodigo() == codigo) {
+            if (objImovel.getCodigo() == codigo)    {
                 listaImovel.remove(objImovel);
             }
         }
