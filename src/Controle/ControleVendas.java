@@ -64,6 +64,7 @@ public class ControleVendas {
         return lucro;
     }
 
+    //Relatório de imóveis vendidos
     public String getImoveisVendidos(int mes, int ano) {
         String vendidos = "";
         Venda objVenda = null;
