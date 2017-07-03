@@ -919,10 +919,7 @@
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="559" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Button_Editar_Ver" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                                  <Component id="Button_Remover_Ver" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="Button_Editar_Ver" min="-2" pref="83" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -931,8 +928,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="Button_Editar_Ver" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="Button_Remover_Ver" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" pref="428" max="32767" attributes="0"/>
@@ -966,14 +961,6 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JButton" name="Button_Remover_Ver">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Remover"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_Remover_VerActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JButton" name="Button_Editar_Ver">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Editar"/>
@@ -1005,12 +992,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel4" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jScrollPane3" pref="559" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" pref="577" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Button_Remover_VerII" linkSize="4" alignment="1" min="-2" pref="83" max="-2" attributes="0"/>
-                                  <Component id="Button_Editar_VerII" linkSize="4" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="Button_Editar_VerII" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1020,13 +1004,9 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane3" min="-2" pref="375" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="Button_Editar_VerII" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="Button_Remover_VerII" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="Button_Editar_VerII" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="53" max="32767" attributes="0"/>
                               <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1080,14 +1060,6 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_Editar_VerIIActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="Button_Remover_VerII">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Remover"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_Remover_VerIIActionPerformed"/>
-                      </Events>
-                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel15">
@@ -1127,10 +1099,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jScrollPane4" min="-2" pref="559" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Button_Editar_VerIII" linkSize="5" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Button_Remover_VerIII" linkSize="5" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="Button_Editar_VerIII" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1139,8 +1108,6 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="Button_Editar_VerIII" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="Button_Remover_VerIII" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane4" alignment="0" pref="428" max="32767" attributes="0"/>
@@ -1175,14 +1142,6 @@
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_Editar_VerIIIActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="Button_Remover_VerIII">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Remover"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_Remover_VerIIIActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>

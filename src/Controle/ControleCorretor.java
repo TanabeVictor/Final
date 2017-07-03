@@ -18,16 +18,14 @@ public class ControleCorretor {
     }
     
     //Cadastro de um corretor contratado
-    public void setCorretorContratado(double salario, String dataAdmissao, int creci, String nome) throws Exception {
+    public void setCorretorContratado(double salario, String dataAdmissao, int creci, String nome){
         Contratado objCorretor = new Contratado(salario, dataAdmissao, creci, nome);
-        listaCorretorContratado.add(objCorretor);
-        gravaContratado();}
+        listaCorretorContratado.add(objCorretor);}
     
     //Cadastro de um corretor comissionado
-    public void setCorretorComissionado(double percentual, int creci, String nome) throws Exception {
+    public void setCorretorComissionado(double percentual, int creci, String nome){
         Comissionado objCorretor = new Comissionado(percentual, creci, nome);
-        listaCorretorComissionado.add(objCorretor);
-        gravaComissionado();}
+        listaCorretorComissionado.add(objCorretor);}
     
     public Vector retornaContratado(){
     return listaCorretorContratado;}

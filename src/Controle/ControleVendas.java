@@ -113,12 +113,12 @@ public class ControleVendas {
         Venda objVenda = null;
         for (int intIdx = 0; intIdx < listaVenda.size(); intIdx++) {
             objVenda = (Venda) listaVenda.elementAt(intIdx);
-                vendidos += "Nome do comprador: " + objVenda.getNomeComprador()
-                         + "\nData da venda: " + objVenda.getDataVenda()
-                         + "\nValor de venda: " + objVenda.getValorReal()
-                         + "\nValor anunciado: " + objVenda.getValorAnunciado()
-                         + "\nCódigo do corretor: " + objVenda.getNroCreci()
-                         + "\nCódigo do imóvel: " + objVenda.getCodImovel()
+                vendidos += objVenda.getNomeComprador()
+                         + "\n"+ objVenda.getDataVenda()
+                         + "\n" + objVenda.getValorReal()
+                         + "\n" + objVenda.getValorAnunciado()
+                         + "\n" + objVenda.getNroCreci()
+                         + "\n" + objVenda.getCodImovel()
                          + "\n";
         }
         return vendidos;
