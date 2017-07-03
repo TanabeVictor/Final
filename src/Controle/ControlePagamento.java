@@ -47,6 +47,5 @@ public class ControlePagamento {
     }
 
     public void adicionaPagamento(int creci) {
-        listaPagamento.add(new Pagamento(creci, creci));
-    }
+        listaPagamento.add(new Pagamento(creci, creci));}
 }

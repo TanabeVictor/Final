@@ -61,8 +61,7 @@ public class ControleCorretor {
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
         }
         
-        return resultado;
-    }
+        return resultado;}
     
     //Relatório de faturamento dos corretores (quanto cada um trouxe)
     public String getFaturamentoVendedores(Vector listaVenda) {
@@ -92,8 +91,7 @@ public class ControleCorretor {
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
         }
         
-        return resultado;
-    }
+        return resultado;}
 
     public String getContratado(int creci) {
      String informacao = "";

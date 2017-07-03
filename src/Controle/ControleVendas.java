@@ -55,8 +55,7 @@ public class ControleVendas {
                     lucro -= objVenda.getValorReal() * 0.01;
             }
         }     
-        return lucro;
-    }
+        return lucro;}
 
     public String getImoveisVendidos() {
         String vendidos = "";
