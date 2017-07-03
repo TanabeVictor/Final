@@ -20,12 +20,14 @@ public class ControleVendas {
     }
 
     //Relatório do faturamento da imobiliária
-    public double getFaturamentoImobiliaria() {
+    public double getFaturamentoImobiliaria(int mes, int ano) {
         double faturamento = 0;
         Venda objVenda = null;
         for (int intIdx = 0; intIdx < listaVenda.size(); intIdx++) {
             objVenda = (Venda) listaVenda.elementAt(intIdx);
-            faturamento += objVenda.getValorReal() * 0.05;
+            if (Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                    && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                faturamento += objVenda.getValorReal() * 0.05;
         }
         return faturamento;
     }
