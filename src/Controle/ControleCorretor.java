@@ -47,7 +47,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx2);
                 if (objVenda.getNroCreci() == objComissionado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro += objVenda.getValorReal() * objComissionado.getPercentual();
             }
             resultado += objComissionado.getNome() + " (" + objComissionado.getCreci() + ") - R$ " + lucro + "\n";
@@ -59,7 +59,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx3);
                 if (objVenda.getNroCreci() == objContratado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro += objVenda.getValorReal() * 0.01;
             }
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
@@ -82,7 +82,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx2);
                 if (objVenda.getNroCreci() == objComissionado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro += objVenda.getValorReal();
             }
             resultado += objComissionado.getNome() + " (" + objComissionado.getCreci() + ") - R$ " + lucro + "\n";
@@ -94,7 +94,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx3);
                 if (objVenda.getNroCreci() == objContratado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro += objVenda.getValorReal();
             }
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";

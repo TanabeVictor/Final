@@ -26,7 +26,7 @@ public class ControleVendas {
         for (int intIdx = 0; intIdx < listaVenda.size(); intIdx++) {
             objVenda = (Venda) listaVenda.elementAt(intIdx);
             if (Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                    && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                    && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                 faturamento += objVenda.getValorReal() * 0.05;
         }
         return faturamento;
@@ -50,14 +50,14 @@ public class ControleVendas {
                 objCorretorComissionado = (Comissionado) listaCorretorComissionado.elementAt(intIdx2);
                 if (objVenda.getNroCreci() == objCorretorComissionado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro -= objVenda.getValorReal() * objCorretorComissionado.getPercentual();
             }
             for (int intIdx3 = 0; intIdx3 < listaCorretorContratado.size(); intIdx3++) {
                 objCorretorContratado = (Contratado) listaCorretorContratado.elementAt(intIdx3);
                 if (objVenda.getNroCreci() == objCorretorContratado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                     lucro -= objVenda.getValorReal() * 0.01;
             }
         }     
@@ -70,7 +70,7 @@ public class ControleVendas {
         for (int intIdx = 0; intIdx < listaVenda.size(); intIdx++) {
             objVenda = (Venda) listaVenda.elementAt(intIdx);
             if (Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                    && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                    && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
                 vendidos += "Nome do comprador: " + objVenda.getNomeComprador()
                          + "\nData da venda: " + objVenda.getDataVenda()
                          + "\nValor de venda: " + objVenda.getValorReal()
