@@ -1,6 +1,8 @@
 package Entidades;
 
-public class Comissionado extends Corretor {
+import java.io.Serializable;
+
+public class Comissionado extends Corretor implements Serializable {
 
     private double percentual;
 

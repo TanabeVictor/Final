@@ -1,6 +1,8 @@
 package Entidades;
 
-public class Contratado extends Corretor {
+import java.io.Serializable;
+
+public class Contratado extends Corretor implements Serializable {
 
     private double salario;
     private String dataAdmissao;

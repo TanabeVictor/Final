@@ -1,6 +1,8 @@
 package Entidades;
 
-public class Corretor {
+import java.io.Serializable;
+
+public class Corretor implements Serializable {
 
     private int creci;
     private String nome;
