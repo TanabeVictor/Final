@@ -3,15 +3,26 @@ package Controle;
 import Entidades.*;
 import java.io.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class ControleImoveis {
+
     private Vector listaImovel = new Vector();
     
     //Inserção do imóvel
     public void setImovel(int codigo, String tipo, String descricao, String nomeVendedor, String data, double preco) throws Exception {
         Imovel objImovel = new Imovel(codigo, tipo, descricao, nomeVendedor, data, preco);
         listaImovel.add(objImovel);
+<<<<<<< HEAD
         gravaImovel();}
+=======
+//        try {
+//            gravaImovel();
+//        } catch (Exception e) {
+//            throw new Exception("Imovel não pode ser cadastrado!\n");
+//        }
+    }
+>>>>>>> f6854b9303694f1c5bd87bc1a35a9afc7f64ed7f
 
     public String getListaImovel() {
      String informacao = "";
@@ -33,12 +44,12 @@ public class ControleImoveis {
         Imovel objImovel = null;
         for (int intIdx = 0; intIdx < listaImovel.size(); intIdx++) {
             objImovel = (Imovel) listaImovel.elementAt(intIdx);
-            if (objImovel.getCodigo() == codigo)    {
+            if (objImovel.getCodigo() == codigo) {
                 listaImovel.remove(objImovel);
             }
         }
     }
-    
+
     //Relatório de imóveis encalhados
     public String getImoveisEncalhados(int mes, int ano) {
         String informacao = "";
@@ -59,23 +70,26 @@ public class ControleImoveis {
         }
         return informacao;
     }
-    
+
     public String getImovel(int codigo) {
-     String informacao = "";
+        String informacao = "";
         Imovel objImovel = null;
         for (int intIdx = 0; intIdx < listaImovel.size(); intIdx++) {
             objImovel = (Imovel) listaImovel.elementAt(intIdx);
-                if(codigo == objImovel.getCodigo()){
-                informacao =objImovel.getCodigo()
-                        + "\n"+ objImovel.getDescricao()
-                        + "\n"+ objImovel.getTipo()
-                        + "\n"+ objImovel.getNomeVendedor()
-                        + "\n"+ objImovel.getData()
-                        + "\n"+ objImovel.getPreco()
-                        + "\n";}}
-        
-        return informacao;}
-    
+            if (codigo == objImovel.getCodigo()) {
+                informacao = objImovel.getCodigo()
+                        + "\n" + objImovel.getDescricao()
+                        + "\n" + objImovel.getTipo()
+                        + "\n" + objImovel.getNomeVendedor()
+                        + "\n" + objImovel.getData()
+                        + "\n" + objImovel.getPreco()
+                        + "\n";
+            }
+        }
+
+        return informacao;
+    }
+
     //Lista imóveis do tipo casa
     public String getImoveisCasa() {
         String informacao = "";
@@ -88,8 +102,11 @@ public class ControleImoveis {
                         + "\nNome do vendedor: " + objImovel.getNomeVendedor()
                         + "\nData de cadastro: " + objImovel.getData()
                         + "\nPreço: R$ " + objImovel.getPreco()
-                        + "\n\n";}}
-        return informacao;}
+                        + "\n\n";
+            }
+        }
+        return informacao;
+    }
 
     //Lista imóveis do tipo apartamento
     public String getImoveisApartamento() {
@@ -121,8 +138,11 @@ public class ControleImoveis {
                         + "\nNome do vendedor: " + objImovel.getNomeVendedor()
                         + "\nData de cadastro: " + objImovel.getData()
                         + "\nPreço: R$ " + objImovel.getPreco()
-                        + "\n\n";}}
-        return informacao;}
+                        + "\n\n";
+            }
+        }
+        return informacao;
+    }
 
     //Lista imóveis do tipo lote
     public String getImoveisLote() {
@@ -196,21 +216,49 @@ public class ControleImoveis {
         return informacao;
     }
 
+<<<<<<< HEAD
     public void gravaImovel() throws Exception {
         FileOutputStream objFileOS = new FileOutputStream("Imoveis.dat");
         ObjectOutputStream objOS = new ObjectOutputStream(objFileOS);
         objOS.writeObject(listaImovel);
         objOS.flush();
         objOS.close();
+=======
+    private void gravaImovel() throws Exception {
+        try {
+            FileOutputStream objFileOS = new FileOutputStream("Imoveis.dat");
+            ObjectOutputStream objOS = new ObjectOutputStream(objFileOS);
+            objOS.writeObject(listaImovel);
+            objOS.flush();
+            objOS.close();
+            objFileOS.close();
+        } catch (Exception ex) {
+            throw new Exception("Arquivo não encontrado!");
+        }
+>>>>>>> f6854b9303694f1c5bd87bc1a35a9afc7f64ed7f
     }
 
     public void recuperImovel() throws Exception {
         File objFile = new File("Imoveis.dat");
+<<<<<<< HEAD
         if (objFile.exists()) {
             FileInputStream objFileIS = new FileInputStream("Imoveis.dat");
             ObjectInputStream objIS = new ObjectInputStream(objFileIS);
             listaImovel = (Vector) objIS.readObject();
             objIS.close();
+=======
+        try {
+            if (objFile.exists()) {
+                FileInputStream objFileIS = new FileInputStream("Imoveis.dat");
+                ObjectInputStream objIS = new ObjectInputStream(objFileIS);
+                listaImovel = (Vector) objIS.readObject();
+                objIS.close();
+            } else {
+                throw new Exception("Erro ao carregar arquivo!\n");
+            }
+        } catch (Exception ex) {
+            listaImovel = new Vector();
+>>>>>>> f6854b9303694f1c5bd87bc1a35a9afc7f64ed7f
         }
     }
 }
