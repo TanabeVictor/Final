@@ -65,7 +65,8 @@ public class ControleCorretor {
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
         }
         
-        return resultado;}
+        return resultado;
+    }
     
     //Relatório do melhor corretor do mês
     public String getMelhorCorretor(Vector listaVenda, int mes, int ano) {
@@ -145,7 +146,8 @@ public class ControleCorretor {
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
         }
         
-        return resultado;}
+        return resultado;
+    }
 
     public String getContratado(int creci) {
      String informacao = "";
