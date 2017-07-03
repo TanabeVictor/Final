@@ -64,18 +64,20 @@ public class ControleVendas {
         return lucro;
     }
 
-    public String getImoveisVendidos() {
+    public String getImoveisVendidos(int mes, int ano) {
         String vendidos = "";
         Venda objVenda = null;
         for (int intIdx = 0; intIdx < listaVenda.size(); intIdx++) {
             objVenda = (Venda) listaVenda.elementAt(intIdx);
-            vendidos += "Nome do comprador: " + objVenda.getNomeComprador()
-                    + "\nData da venda: " + objVenda.getDataVenda()
-                    + "\nValor de venda: " + objVenda.getValorReal()
-                    + "\nValor anunciado: " + objVenda.getValorAnunciado()
-                    + "\nCódigo do corretor: " + objVenda.getNroCreci()
-                    + "\nCódigo do imóvel: " + objVenda.getCodImovel()
-                    + "\n\n";
+            if (Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                    && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
+                vendidos += "Nome do comprador: " + objVenda.getNomeComprador()
+                         + "\nData da venda: " + objVenda.getDataVenda()
+                         + "\nValor de venda: " + objVenda.getValorReal()
+                         + "\nValor anunciado: " + objVenda.getValorAnunciado()
+                         + "\nCódigo do corretor: " + objVenda.getNroCreci()
+                         + "\nCódigo do imóvel: " + objVenda.getCodImovel()
+                         + "\n\n";
         }
         return vendidos;
     }
