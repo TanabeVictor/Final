@@ -1,6 +1,8 @@
 package Entidades;
 
-public class Pagamento {
+import java.io.Serializable;
+
+public class Pagamento implements Serializable {
 
     private int nroCreci;
     private double valor;

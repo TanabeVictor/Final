@@ -5,11 +5,13 @@
  */
 package Entidades;
 
+import java.io.Serializable;
+
 /**
  *
  * @author vitau
  */
-public class Imovel {
+public class Imovel implements Serializable {
 
     private int codigo;
     private String tipo, descricao, nomeVendedor, data;

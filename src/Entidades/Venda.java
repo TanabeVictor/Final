@@ -1,6 +1,8 @@
 package Entidades;
 
-public class Venda {
+import java.io.Serializable;
+
+public class Venda implements Serializable {
     private String nomeComprador, dataVenda;
     private double valorReal, valorAnunciado;
     private int nroCreci, codImovel;

@@ -23,8 +23,7 @@ public class ControlePagamento {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        return 0;
-    }
+        return 0;}
 
     public void procuraVenda(Corretor c, int mes) {
         total = 0;
@@ -44,8 +43,7 @@ public class ControlePagamento {
             }
         }
         adicionaPagamento(venda.getNroCreci(), total);
-
-    }
+   }
 
     public void adicionaPagamento(int creci, double valor) {
         listaPagamento.add(new Pagamento(creci, valor));

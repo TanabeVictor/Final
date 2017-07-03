@@ -29,6 +29,12 @@ public class ControleCorretor {
         listaCorretorComissionado.add(objCorretor);
         gravaComissionado();}
     
+    public Vector retornaContratado(){
+    return listaCorretorContratado;}
+    
+    public Vector retornaComissionado(){
+    return listaCorretorComissionado;}
+    
     //Relatório de lucro dos vendedores
     public String getLucroVendedores(Vector listaVenda, int mes, int ano) {
         double lucro;
@@ -43,7 +49,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx2);
                 if (objVenda.getNroCreci() == objComissionado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 10)) == ano)
                     lucro += objVenda.getValorReal() * objComissionado.getPercentual();
             }
             resultado += objComissionado.getNome() + " (" + objComissionado.getCreci() + ") - R$ " + lucro + "\n";
@@ -55,7 +61,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx3);
                 if (objVenda.getNroCreci() == objContratado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 10)) == ano)
                     lucro += objVenda.getValorReal() * 0.01;
             }
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
@@ -78,7 +84,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx2);
                 if (objVenda.getNroCreci() == objComissionado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 10)) == ano)
                     atualComissionado += objVenda.getValorReal() * objComissionado.getPercentual();
             }
             if (atualComissionado > maiorComissionado) {
@@ -93,7 +99,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx3);
                 if (objVenda.getNroCreci() == objContratado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 10)) == ano)
                     atualContratado += objVenda.getValorReal() * 0.01;
             }
             if (atualContratado > maiorContratado) {
@@ -124,7 +130,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx2);
                 if (objVenda.getNroCreci() == objComissionado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 10)) == ano)
                     lucro += objVenda.getValorReal();
             }
             resultado += objComissionado.getNome() + " (" + objComissionado.getCreci() + ") - R$ " + lucro + "\n";
@@ -136,7 +142,7 @@ public class ControleCorretor {
                 objVenda = (Venda) listaVenda.elementAt(intIdx3);
                 if (objVenda.getNroCreci() == objContratado.getCreci()
                         && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
-                        && Integer.parseInt(objVenda.getDataVenda().substring(7, 10)) == ano)
+                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 10)) == ano)
                     lucro += objVenda.getValorReal();
             }
             resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
@@ -161,6 +167,21 @@ public class ControleCorretor {
               
         return informacao;}
     
+    public String getListaContratado() {
+     String informacao = "";
+        Contratado objContratado = null;
+        for (int intIdx = 0; intIdx < listaCorretorContratado.size(); intIdx++) {
+            objContratado = (Contratado) listaCorretorContratado.elementAt(intIdx);
+                informacao +=objContratado.getCreci()
+                        + "\n"+ objContratado.getNome()
+                        + "\n"+ "Contratado"
+                        + "\n"+ objContratado.getDataAdmissao()
+                        + "\n"+ objContratado.getSalario()
+                        + "\n"+ "-"
+                        + "\n";} 
+              
+        return informacao;}
+    
     public String getComissionado(int creci) {
      String informacao = "";
         Comissionado objComissionado = null;
@@ -178,14 +199,30 @@ public class ControleCorretor {
         
         return informacao;}
     
-    private void gravaContratado() throws Exception {
+    public String getListaComissionado() {
+     String informacao = "";
+        Comissionado objComissionado = null;
+        for (int intIdx = 0; intIdx < listaCorretorComissionado.size(); intIdx++) {
+            objComissionado = (Comissionado) listaCorretorComissionado.elementAt(intIdx);
+              
+                informacao += objComissionado.getCreci()
+                        + "\n"+ objComissionado.getNome()
+                        + "\n"+ "Comissionado"
+                        + "\n"+ "-"
+                        + "\n"+ "-"
+                        + "\n"+ objComissionado.getPercentual()+ "%"
+                        + "\n";}
+        
+        return informacao;}
+    
+    public void gravaContratado() throws Exception {
         FileOutputStream objFileOS = new FileOutputStream("Contratado.dat");
         ObjectOutputStream objOS = new ObjectOutputStream(objFileOS);
         objOS.writeObject(listaCorretorContratado);
         objOS.flush();
         objOS.close();}
 
-    private void recuperaContratado() throws Exception {
+    public void recuperaContratado() throws Exception {
         File objFile = new File("Contratado.dat");
         if (objFile.exists()) {
             FileInputStream objFileIS = new FileInputStream("Contratado.dat");
@@ -193,14 +230,14 @@ public class ControleCorretor {
             listaCorretorContratado = (Vector) objIS.readObject();
             objIS.close();}}
     
-    private void gravaComissionado() throws Exception {
+    public void gravaComissionado() throws Exception {
         FileOutputStream objFileOS = new FileOutputStream("Comissionado.dat");
         ObjectOutputStream objOS = new ObjectOutputStream(objFileOS);
         objOS.writeObject(listaCorretorComissionado);
         objOS.flush();
         objOS.close();}
 
-    private void recuperaComissionado() throws Exception {
+    public void recuperaComissionado() throws Exception {
         File objFile = new File("Comissionado.dat");
         if (objFile.exists()) {
             FileInputStream objFileIS = new FileInputStream("Comissionado.dat");
