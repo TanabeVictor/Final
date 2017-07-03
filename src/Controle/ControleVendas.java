@@ -33,7 +33,7 @@ public class ControleVendas {
     }
     
     //Relatório do lucro da imobiliária
-    public double getLucroImobiliaria(Vector listaCorretorComissionado, Vector listaCorretorContratado) {
+    public double getLucroImobiliaria(Vector listaCorretorComissionado, Vector listaCorretorContratado, int mes, int ano) {
         double lucro = 0;
         Venda objVenda = null;
         Comissionado objCorretorComissionado = null;
@@ -48,12 +48,16 @@ public class ControleVendas {
             objVenda = (Venda) listaVenda.elementAt(intIdx);
             for (int intIdx2 = 0; intIdx2 < listaCorretorComissionado.size(); intIdx2++) {
                 objCorretorComissionado = (Comissionado) listaCorretorComissionado.elementAt(intIdx2);
-                if (objVenda.getNroCreci() == objCorretorComissionado.getCreci())
+                if (objVenda.getNroCreci() == objCorretorComissionado.getCreci()
+                        && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
                     lucro -= objVenda.getValorReal() * objCorretorComissionado.getPercentual();
             }
             for (int intIdx3 = 0; intIdx3 < listaCorretorContratado.size(); intIdx3++) {
                 objCorretorContratado = (Contratado) listaCorretorContratado.elementAt(intIdx3);
-                if (objVenda.getNroCreci() == objCorretorContratado.getCreci())
+                if (objVenda.getNroCreci() == objCorretorContratado.getCreci()
+                        && Integer.parseInt(objVenda.getDataVenda().substring(3, 5)) == mes
+                        && Integer.parseInt(objVenda.getDataVenda().substring(6, 9)) == ano)
                     lucro -= objVenda.getValorReal() * 0.01;
             }
         }     
