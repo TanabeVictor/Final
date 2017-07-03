@@ -14,7 +14,8 @@ public class ControleImoveis {
     //Inserção do imóvel
     public void setImovel(int codigo, String tipo, String descricao, String nomeVendedor, String data, double preco) throws Exception {
         Imovel objImovel = new Imovel(codigo, tipo, descricao, nomeVendedor, data, preco);
-        listaImovel.add(objImovel);}
+        listaImovel.add(objImovel);
+    }
 
     //Remoção do imóvel; limite passa o código como parâmetro após a venda para que ele seja removido da lista
     public void removeImovel(int codigo) {
@@ -27,21 +28,21 @@ public class ControleImoveis {
         }
     }
     
-    public String getImovel() {
+    public String getImovel(int codigo) {
      String informacao = "";
         Imovel objImovel = null;
         for (int intIdx = 0; intIdx < listaImovel.size(); intIdx++) {
             objImovel = (Imovel) listaImovel.elementAt(intIdx);
-            
-                informacao +=objImovel.getCodigo()
+                if(codigo == objImovel.getCodigo()){
+                informacao =objImovel.getCodigo()
                         + "\n"+ objImovel.getDescricao()
                         + "\n"+ objImovel.getTipo()
                         + "\n"+ objImovel.getNomeVendedor()
                         + "\n"+ objImovel.getData()
-                        + "\n"+ objImovel.getPreco();}
+                        + "\n"+ objImovel.getPreco()
+                        + "\n";}}
         
-        return informacao;
-    }
+        return informacao;}
     
     //Lista imóveis do tipo casa
     public String getImoveisCasa() {
@@ -55,11 +56,8 @@ public class ControleImoveis {
                         + "\nNome do vendedor: " + objImovel.getNomeVendedor()
                         + "\nData de cadastro: " + objImovel.getData()
                         + "\nPreço: R$ " + objImovel.getPreco()
-                        + "\n\n";
-            }
-        }
-        return informacao;
-    }
+                        + "\n\n";}}
+        return informacao;}
 
     //Lista imóveis do tipo apartamento
     public String getImoveisApartamento() {
@@ -91,11 +89,8 @@ public class ControleImoveis {
                         + "\nNome do vendedor: " + objImovel.getNomeVendedor()
                         + "\nData de cadastro: " + objImovel.getData()
                         + "\nPreço: R$ " + objImovel.getPreco()
-                        + "\n\n";
-            }
-        }
-        return informacao;
-    }
+                        + "\n\n";}}
+        return informacao;}
 
     //Lista imóveis do tipo lote
     public String getImoveisLote() {

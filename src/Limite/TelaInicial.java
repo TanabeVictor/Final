@@ -10,12 +10,14 @@ import javax.swing.table.DefaultTableModel;
 public class TelaInicial extends javax.swing.JFrame{
     private ControleImoveis objACtrImovel = new ControleImoveis();
     private ControleCorretor objACtrCorretor = new ControleCorretor();
-    private Imovel objAEntImovel;
-    private Vector objeto = new Vector();
-    private DefaultTableModel model_vendas =  new DefaultTableModel(); 
-    
+    private DefaultTableModel model = new DefaultTableModel();
+    String[] nomesColunas = {"Codigo", "Descrição", "Tipo", "Vendedor", "Data", "Preço"};
+     
     public TelaInicial() {
         initComponents();
+        model.setColumnIdentifiers(nomesColunas);
+        Table_Vendas.setModel(model);
+        Table_Imovel_Ver.setModel(model);
     }
 
     @SuppressWarnings("unchecked")
@@ -74,7 +76,6 @@ public class TelaInicial extends javax.swing.JFrame{
         jLabel20 = new javax.swing.JLabel();
         Field_Data_Vendas = new javax.swing.JTextField();
         Button_Venda = new javax.swing.JButton();
-        Button_Verificar_Cad = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         Field_CodVenda_Vendas = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
@@ -86,7 +87,6 @@ public class TelaInicial extends javax.swing.JFrame{
         ComboBox_Tipo_Ver = new javax.swing.JComboBox<>();
         Button_Remover_Ver = new javax.swing.JButton();
         Button_Editar_Ver = new javax.swing.JButton();
-        Button_Verifica_View = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -336,27 +336,27 @@ public class TelaInicial extends javax.swing.JFrame{
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jTabbedPane1)
-                        .addContainerGap())
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Field_Creci_Corretor)
-                            .addComponent(Field_Nome_Corretor, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboBox_Tipo_Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(200, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Button_Cad_Corretor)
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTabbedPane1)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Field_Creci_Corretor)
+                                    .addComponent(Field_Nome_Corretor, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ComboBox_Tipo_Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 188, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Button_Cad_Corretor)))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -423,13 +423,6 @@ public class TelaInicial extends javax.swing.JFrame{
             }
         });
 
-        Button_Verificar_Cad.setText("Verificar");
-        Button_Verificar_Cad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_Verificar_CadActionPerformed(evt);
-            }
-        });
-
         jLabel21.setText("Código do Imóvel: ");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -450,8 +443,7 @@ public class TelaInicial extends javax.swing.JFrame{
                             .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(Button_Verificar_Cad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(834, 834, 834))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,8 +471,6 @@ public class TelaInicial extends javax.swing.JFrame{
                 .addComponent(Field_CodVenda_Vendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Button_Venda)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Button_Verificar_Cad)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
         );
@@ -561,13 +551,6 @@ public class TelaInicial extends javax.swing.JFrame{
             }
         });
 
-        Button_Verifica_View.setText("Verificar");
-        Button_Verifica_View.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_Verifica_ViewActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -575,22 +558,16 @@ public class TelaInicial extends javax.swing.JFrame{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ComboBox_Tipo_Ver, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Button_Editar_Ver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Button_Remover_Ver, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addContainerGap())))
+                        .addComponent(ComboBox_Tipo_Ver, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Button_Verifica_View, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Button_Editar_Ver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Button_Remover_Ver, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -601,8 +578,6 @@ public class TelaInicial extends javax.swing.JFrame{
                 .addComponent(Button_Editar_Ver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Button_Remover_Ver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Button_Verifica_View)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
         );
@@ -858,15 +833,17 @@ public class TelaInicial extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+      
+    
     private void Button_Editar_VerIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Editar_VerIIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_Editar_VerIIActionPerformed
         
     private void Button_Cad_ImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Cad_ImovelActionPerformed
+        int codigo=0;
         try {
             String cod = Field_Cod_Imovel.getText();
-            int codigo = Integer.parseInt(cod);
+            codigo = Integer.parseInt(cod);
             String tipo = (String) ComboBox_Tipo_Imovel.getSelectedItem();
             String descricao = Field_Descricao_Imovel.getText();
             String nomeVend = Field_Prop_Imovel.getText();
@@ -877,6 +854,11 @@ public class TelaInicial extends javax.swing.JFrame{
             JOptionPane.showMessageDialog(null, "Imóvel Cadastrado!");}
         catch (Exception ex) {
             JOptionPane.showMessageDialog(null,"Erro na Inserção Imóvel");}
+            
+            String info = objACtrImovel.getImovel(codigo);
+            String[] split = info.split("\n");
+            
+            model.addRow(split);  
     }//GEN-LAST:event_Button_Cad_ImovelActionPerformed
 
     private void Button_VendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_VendaActionPerformed
@@ -892,7 +874,7 @@ public class TelaInicial extends javax.swing.JFrame{
             lista.add(new String[]{"", "", "", "", ""});
             DefaultTableModel model = new DefaultTableModel(
             lista.toArray(new String[lista.size()][]), nomesColunas);
-            Table_Vendas.setModel(model);
+           
     }//GEN-LAST:event_Button_VendaActionPerformed
 
     private void Button_Editar_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Editar_VerActionPerformed
@@ -925,30 +907,6 @@ public class TelaInicial extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_Gerar_VerIVActionPerformed
 
-    private void Button_Verifica_ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Verifica_ViewActionPerformed
-        String[] nomesColunas = {"Codigo", "Descrição", "Tipo", "Vendedor", "Preço"};
-        ArrayList<String[]> lista = new ArrayList<>();
-        String info = objACtrImovel.getImovel();
-        String[] split = info.split("\n");
-        lista.add(new String[]{split[0], split[1], split[2], split[3], split[6]});
-
-        DefaultTableModel model = new DefaultTableModel(
-        lista.toArray(new String[lista.size()][]), nomesColunas);
-        Table_Vendas.setModel(model);
-    }//GEN-LAST:event_Button_Verifica_ViewActionPerformed
-
-    private void Button_Verificar_CadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Verificar_CadActionPerformed
-        String[] nomesColunas = {"Codigo", "Descrição", "Tipo", "Vendedor", "Preço"};
-        ArrayList<String[]> lista = new ArrayList<>();
-        String info = objACtrImovel.getImovel();
-        String[] split = info.split("\n");
-        lista.add(new String[]{split[0], split[1], split[2], split[3], split[6]});
-
-        DefaultTableModel model = new DefaultTableModel(
-        lista.toArray(new String[lista.size()][]), nomesColunas);
-        Table_Vendas.setModel(model);
-    }//GEN-LAST:event_Button_Verificar_CadActionPerformed
-
     private void Button_Cad_CorretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_Cad_CorretorActionPerformed
         String crec = Field_Creci_Corretor.getText();
         int creci = Integer.parseInt(crec);
@@ -964,7 +922,6 @@ public class TelaInicial extends javax.swing.JFrame{
         
         else if (tipo.equals("Comissionado")){
         objACtrCorretor.setCorretorComissionado(percentual, creci, nome);}
-      
     }//GEN-LAST:event_Button_Cad_CorretorActionPerformed
 
     public static void main(String args[]) {
@@ -1010,8 +967,6 @@ public class TelaInicial extends javax.swing.JFrame{
     private javax.swing.JButton Button_Remover_VerII;
     private javax.swing.JButton Button_Remover_VerIII;
     private javax.swing.JButton Button_Venda;
-    private javax.swing.JButton Button_Verifica_View;
-    private javax.swing.JButton Button_Verificar_Cad;
     private javax.swing.JComboBox<String> ComboBox_Mes_ViewIV;
     private javax.swing.JComboBox<String> ComboBox_Tipo_Corretor;
     private javax.swing.JComboBox<String> ComboBox_Tipo_Imovel;
