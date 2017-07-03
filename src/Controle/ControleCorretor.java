@@ -23,28 +23,36 @@ public class ControleCorretor {
         Comissionado objCorretor = new Comissionado(percentual, creci, nome);
         listaCorretorComissionado.add(objCorretor);}
 
-    public String getContratado() {
+    public String getContratado(int creci) {
      String informacao = "";
         Contratado objContratado = null;
         for (int intIdx = 0; intIdx < listaCorretorContratado.size(); intIdx++) {
             objContratado = (Contratado) listaCorretorContratado.elementAt(intIdx);
-            
-                informacao +=objContratado.getCreci()
+              if(creci == objContratado.getCreci()){
+                informacao =objContratado.getCreci()
                         + "\n"+ objContratado.getNome()
+                        + "\n"+ "Contratado"
                         + "\n"+ objContratado.getDataAdmissao()
-                        + "\n"+ objContratado.getSalario();}
-        
+                        + "\n"+ objContratado.getSalario()
+                        + "\n"+ "-"
+                        + "\n";}} 
+              
         return informacao;}
     
-    public String getComissionado() {
+    public String getComissionado(int creci) {
      String informacao = "";
         Comissionado objComissionado = null;
         for (int intIdx = 0; intIdx < listaCorretorComissionado.size(); intIdx++) {
             objComissionado = (Comissionado) listaCorretorComissionado.elementAt(intIdx);
-            
-                informacao +=objComissionado.getCreci()
+            if(creci == objComissionado.getCreci()){
+              
+                informacao = objComissionado.getCreci()
                         + "\n"+ objComissionado.getNome()
-                        + "\n"+ objComissionado.getPercentual();}
+                        + "\n"+ "Comissionado"
+                        + "\n"+ "-"
+                        + "\n"+ "-"
+                        + "\n"+ objComissionado.getPercentual()+ "%"
+                        + "\n";}}
         
         return informacao;}
     

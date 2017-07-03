@@ -1,9 +1,7 @@
 package Limite;
 
 import Controle.*;
-import Entidades.*;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,15 +9,19 @@ public class TelaInicial extends javax.swing.JFrame{
     private ControleImoveis objACtrImovel = new ControleImoveis();
     private ControleCorretor objACtrCorretor = new ControleCorretor();
     private DefaultTableModel model = new DefaultTableModel();
+    private DefaultTableModel model2 = new DefaultTableModel();
     String[] nomesColunas = {"Codigo", "Descrição", "Tipo", "Vendedor", "Data", "Preço"};
+    String[] nomesColunas2 = {"Creci", "Nome", "Tipo", "Data de Admissão", "Salário", "Valor do Percentual"};
      
     public TelaInicial() {
         initComponents();
         model.setColumnIdentifiers(nomesColunas);
         Table_Vendas.setModel(model);
         Table_Imovel_Ver.setModel(model);
+        model2.setColumnIdentifiers(nomesColunas2);
+        Table_Corretor_Ver.setModel(model2);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -918,10 +920,18 @@ public class TelaInicial extends javax.swing.JFrame{
         String tipo = (String) ComboBox_Tipo_Corretor.getSelectedItem();
         
         if(tipo.equals("Contratado")){
-        objACtrCorretor.setCorretorContratado(salario, data, creci, nome);}
+        objACtrCorretor.setCorretorContratado(salario, data, creci, nome);
+        String info = objACtrCorretor.getContratado(creci);
+        String[] split = info.split("\n");
+        model2.addRow(split);}
         
         else if (tipo.equals("Comissionado")){
-        objACtrCorretor.setCorretorComissionado(percentual, creci, nome);}
+        objACtrCorretor.setCorretorComissionado(percentual, creci, nome);
+        String info = objACtrCorretor.getComissionado(creci);
+        String[] split = info.split("\n");
+        model2.addRow(split);}
+        
+        JOptionPane.showMessageDialog(null, "Corretor Cadastrado!");
     }//GEN-LAST:event_Button_Cad_CorretorActionPerformed
 
     public static void main(String args[]) {
