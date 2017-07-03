@@ -2,6 +2,7 @@ package Controle;
 
 import Entidades.Contratado;
 import Entidades.Comissionado;
+import Entidades.Venda;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,6 +18,11 @@ public class ControleCorretor {
     public Vector getVectorComissionado(){
         return listaCorretorComissionado;
     }
+
+    public Vector getListaCorretorContratado() {
+        return listaCorretorContratado;
+    }
+    
     //Cadastro de um corretor contratado
     public void setCorretorContratado(double salario, String dataAdmissao, int creci, String nome) {
         Contratado objCorretor = new Contratado(salario, dataAdmissao, creci, nome);
@@ -26,6 +32,37 @@ public class ControleCorretor {
     public void setCorretorComissionado(double percentual, int creci, String nome) {
         Comissionado objCorretor = new Comissionado(percentual, creci, nome);
         listaCorretorComissionado.add(objCorretor);}
+    
+    //Relatório de lucro dos vendedores
+    public String getLucroVendedores(Vector listaVenda) {
+        double lucro;
+        String resultado = "";
+        Venda objVenda = null;
+        Contratado objContratado = null;
+        Comissionado objComissionado = null;
+        for (int intIdx = 0; intIdx < this.getVectorComissionado().size(); intIdx++) {
+            lucro = 0;
+            objComissionado = (Comissionado) this.getVectorComissionado().elementAt(intIdx);
+            for (int intIdx2 = 0; intIdx < listaVenda.size(); intIdx2++) {
+                objVenda = (Venda) listaVenda.elementAt(intIdx2);
+                if (objVenda.getNroCreci() == objComissionado.getCreci())
+                    lucro += objVenda.getValorReal() * objComissionado.getPercentual();
+            }
+            resultado += objComissionado.getNome() + " (" + objComissionado.getCreci() + ") - R$ " + lucro + "\n";
+        }
+        for (int intIdx = 0; intIdx < this.getListaCorretorContratado().size(); intIdx++) {
+            lucro = 0;
+            objContratado = (Contratado) this.getListaCorretorContratado().elementAt(intIdx);
+            for (int intIdx3 = 0; intIdx < listaVenda.size(); intIdx3++) {
+                objVenda = (Venda) listaVenda.elementAt(intIdx3);
+                if (objVenda.getNroCreci() == objContratado.getCreci())
+                    lucro += objVenda.getValorReal() * 0.01;
+            }
+            resultado += objContratado.getNome() + " (" + objContratado.getCreci() + ") - R$ " + lucro + "\n";
+        }
+        
+        return resultado;
+    }
 
     public String getContratado(int creci) {
      String informacao = "";
