@@ -3,7 +3,6 @@ package Controle;
 import Entidades.*;
 import java.io.*;
 import java.util.*;
-import javax.swing.JOptionPane;
 
 public class ControleImoveis {
 
@@ -13,16 +12,12 @@ public class ControleImoveis {
     public void setImovel(int codigo, String tipo, String descricao, String nomeVendedor, String data, double preco) throws Exception {
         Imovel objImovel = new Imovel(codigo, tipo, descricao, nomeVendedor, data, preco);
         listaImovel.add(objImovel);
-<<<<<<< HEAD
-        gravaImovel();}
-=======
-//        try {
-//            gravaImovel();
-//        } catch (Exception e) {
-//            throw new Exception("Imovel não pode ser cadastrado!\n");
-//        }
+        try {
+            gravaImovel();
+        } catch (Exception e) {
+            throw new Exception("Imovel não pode ser cadastrado!\n");
+        }
     }
->>>>>>> f6854b9303694f1c5bd87bc1a35a9afc7f64ed7f
 
     public String getListaImovel() {
      String informacao = "";
@@ -216,15 +211,7 @@ public class ControleImoveis {
         return informacao;
     }
 
-<<<<<<< HEAD
-    public void gravaImovel() throws Exception {
-        FileOutputStream objFileOS = new FileOutputStream("Imoveis.dat");
-        ObjectOutputStream objOS = new ObjectOutputStream(objFileOS);
-        objOS.writeObject(listaImovel);
-        objOS.flush();
-        objOS.close();
-=======
-    private void gravaImovel() throws Exception {
+private void gravaImovel() throws Exception {
         try {
             FileOutputStream objFileOS = new FileOutputStream("Imoveis.dat");
             ObjectOutputStream objOS = new ObjectOutputStream(objFileOS);
@@ -235,18 +222,11 @@ public class ControleImoveis {
         } catch (Exception ex) {
             throw new Exception("Arquivo não encontrado!");
         }
->>>>>>> f6854b9303694f1c5bd87bc1a35a9afc7f64ed7f
     }
 
     public void recuperImovel() throws Exception {
         File objFile = new File("Imoveis.dat");
-<<<<<<< HEAD
-        if (objFile.exists()) {
-            FileInputStream objFileIS = new FileInputStream("Imoveis.dat");
-            ObjectInputStream objIS = new ObjectInputStream(objFileIS);
-            listaImovel = (Vector) objIS.readObject();
-            objIS.close();
-=======
+
         try {
             if (objFile.exists()) {
                 FileInputStream objFileIS = new FileInputStream("Imoveis.dat");
@@ -258,7 +238,6 @@ public class ControleImoveis {
             }
         } catch (Exception ex) {
             listaImovel = new Vector();
->>>>>>> f6854b9303694f1c5bd87bc1a35a9afc7f64ed7f
         }
     }
 }
