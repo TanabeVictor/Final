@@ -15,6 +15,7 @@ public class ControleImoveis {
     public void setImovel(int codigo, String tipo, String descricao, String nomeVendedor, String data, double preco) throws Exception {
         Imovel objImovel = new Imovel(codigo, tipo, descricao, nomeVendedor, data, preco);
         listaImovel.add(objImovel);
+        gravaImovel();
     }
 
     //Remoção do imóvel; limite passa o código como parâmetro após a venda para que ele seja removido da lista
@@ -186,20 +187,31 @@ public class ControleImoveis {
     }
 
     private void gravaImovel() throws Exception {
+        try{
         FileOutputStream objFileOS = new FileOutputStream("Imoveis.dat");
         ObjectOutputStream objOS = new ObjectOutputStream(objFileOS);
         objOS.writeObject(listaImovel);
         objOS.flush();
         objOS.close();
-    }
+        objFileOS.close();
+        }catch (Exception ex){
+            throw new Exception ("Arquivo não encontrado!");
+        }
+        }
 
     private void recuperImovel() throws Exception {
         File objFile = new File("Imoveis.dat");
+        try{
         if (objFile.exists()) {
             FileInputStream objFileIS = new FileInputStream("Imoveis.dat");
             ObjectInputStream objIS = new ObjectInputStream(objFileIS);
             listaImovel = (Vector) objIS.readObject();
             objIS.close();
+        }else {
+            throw  new Exception("Erro ao carregar arquivo!\n");
+        }
+                } catch (Exception ex) {
+            listaImovel = new Vector();
         }
     }
 }

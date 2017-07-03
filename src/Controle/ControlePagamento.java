@@ -31,8 +31,9 @@ public class ControlePagamento {
 
     public void procuraVenda(Corretor c, int mes) {
         total = 0;
+        Venda venda = null;
         for (int i = 0; i < ctrVendas.getVector().size(); i++) {
-            Venda venda = (Venda) ctrVendas.getVector().elementAt(i);
+            venda = (Venda) ctrVendas.getVector().elementAt(i);
             try {
                 if (Integer.parseInt(venda.getDataVenda().substring(3, 5)) == mes && venda.getNroCreci() == c.getCreci()) {
                     if (c.getClass().getName() == "Comissionado") {
@@ -45,7 +46,7 @@ public class ControlePagamento {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
         }
-        //adicionaPagamento();
+        adicionaPagamento(venda.getNroCreci(), total);
 
     }
 
