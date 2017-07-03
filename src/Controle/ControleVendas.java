@@ -1,6 +1,8 @@
 package Controle;
 
 import Entidades.Venda;
+import Entidades.Comissionado;
+import Entidades.Contratado;
 import java.util.*;
 
 public class ControleVendas {
@@ -26,6 +28,34 @@ public class ControleVendas {
             faturamento += objVenda.getValorReal() * 0.05;
         }
         return faturamento;
+    }
+    
+    //Relatório do lucro da imobiliária
+    public double getLucroImobiliaria(Vector listaCorretorComissionado, Vector listaCorretorContratado) {
+        double lucro = 0;
+        Venda objVenda = null;
+        Comissionado objCorretorComissionado = null;
+        Contratado objCorretorContratado = null;
+        
+        for (int intIdx = 0; intIdx < listaVenda.size(); intIdx++) {
+            objVenda = (Venda) listaVenda.elementAt(intIdx);
+            lucro += objVenda.getValorReal() * 0.05;
+        }
+        
+        for (int intIdx = 0; intIdx < listaVenda.size(); intIdx++) {
+            objVenda = (Venda) listaVenda.elementAt(intIdx);
+            for (int intIdx2 = 0; intIdx2 < listaCorretorComissionado.size(); intIdx2++) {
+                objCorretorComissionado = (Comissionado) listaCorretorComissionado.elementAt(intIdx2);
+                if (objVenda.getNroCreci() == objCorretorComissionado.getCreci())
+                    lucro -= objVenda.getValorReal() * objCorretorComissionado.getPercentual();
+            }
+            for (int intIdx3 = 0; intIdx3 < listaCorretorContratado.size(); intIdx3++) {
+                objCorretorContratado = (Contratado) listaCorretorContratado.elementAt(intIdx3);
+                if (objVenda.getNroCreci() == objCorretorContratado.getCreci())
+                    lucro -= objVenda.getValorReal() * 0.01;
+            }
+        }     
+        return lucro;
     }
 
     public String getImoveisVendidos() {
